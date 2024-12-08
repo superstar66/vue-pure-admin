@@ -10,6 +10,7 @@ const formLabelWidth = '140px'
 // 获取课题列表
 const getTopicListFun = async () => {
   const data = await getTopicDecList(userStore.nickname)
+  tableData.value = []
   Object.assign(tableData.value, data)
   console.log(tableData.value)
 }
@@ -49,6 +50,7 @@ const subForm = async () => {
   console.log(form.value)
   console.log(userStore)
   await subTopicDec(form.value)
+  getTopicListFun()
   dialogFormVisible.value = false
 }
 
