@@ -12,7 +12,7 @@ import {
   type RefreshTokenResult,
   refreshTokenApi
 } from "@/api/user";
-import { getLogin } from "@/api/topicApi";
+import { getLogin, getUserInfo } from "@/api/topicApi";
 import { useMultiTagsStoreHook } from "./multiTags";
 import { type DataInfo, setToken, removeToken, userKey } from "@/utils/auth";
 
@@ -69,13 +69,16 @@ export const useUserStore = defineStore({
       return new Promise<UserResult>((resolve, reject) => {
         console.log(data)
         getLogin(data)
-          .then(data => {
+          .then(async data => {
+            const result = await getUserInfo()
             data = {
               success: true,
               data: {
                 ...data,
                 roles: [data.user_type],
-                accessToken: data.token
+                accessToken: data.token,
+                username: result.name,
+                nickname: result.name
               }
             }
             console.log(data)

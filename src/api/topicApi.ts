@@ -35,12 +35,39 @@ export const getTopicDecList = (userName) => {
   return instance.get(`/project-by-name?name=${userName}`)
 }
 
-// 提交课题申报
-export const subTopicDec = (data) => {
-  return instance.post('/project-create', data)
-}
-
 // 登录
 export const getLogin = (data) => {
   return instance.post('/login', data)
+}
+
+// 返回用户信息
+export const getUserInfo = () => {
+  return instance.get('/personinfo', {
+    headers: {
+      'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMDAwMSwiZXhwIjoxNzMzNzI4NTkwLCJpYXQiOjE3MzM2NDIxOTB9.wchXTcmFU44Vqnnz7t9gV2qE7A2ICC-Jbp6p7dBD62Y'
+    }
+  })
+}
+
+// 删除课题申报
+export const delTopicDec = (title) => {
+  return instance.delete(`/delete-project?title=${title}`, {
+    headers: {
+      'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMDAwMSwiZXhwIjoxNzMzNzI4NTkwLCJpYXQiOjE3MzM2NDIxOTB9.wchXTcmFU44Vqnnz7t9gV2qE7A2ICC-Jbp6p7dBD62Y'
+    }
+  })
+}
+
+// 添加课题申报
+export const subTopicDec = (data) => {
+  return instance.post('/project-create', {
+    ...data,
+    "status": "进行中",
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+  }, {
+    headers: {
+      'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMDAwMSwiZXhwIjoxNzMzNzI4NTkwLCJpYXQiOjE3MzM2NDIxOTB9.wchXTcmFU44Vqnnz7t9gV2qE7A2ICC-Jbp6p7dBD62Y'
+    },
+  })
 }
