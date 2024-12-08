@@ -18,15 +18,13 @@ const permissionRouter = {
       path: "/permission/page/index",
       name: "PermissionPage",
       meta: {
-        title: "页面权限",
-        roles: ["admin", "common"]
+        title: "页面权限"
       }
     },
     {
       path: "/permission/button",
       meta: {
-        title: "按钮权限",
-        roles: ["admin", "common"]
+        title: "按钮权限"
       },
       children: [
         {

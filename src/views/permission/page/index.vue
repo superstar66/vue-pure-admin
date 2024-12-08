@@ -20,12 +20,20 @@ const username = ref(useUserStoreHook()?.username);
 
 const options = [
   {
-    value: "admin",
-    label: "管理员角色"
+    value: "teacher",
+    label: "指导教师"
   },
   {
-    value: "common",
-    label: "普通角色"
+    value: "office",
+    label: "教科办"
+  },
+  {
+    value: "committee",
+    label: "答辩委员会"
+  },
+  {
+    value: "student",
+    label: "学生"
   }
 ];
 
