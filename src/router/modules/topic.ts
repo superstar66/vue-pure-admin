@@ -14,7 +14,7 @@ export default {
       component: () => import("@/views/topic/topic_declaration.vue"),
       meta: {
         title: "课题申报",
-        roles: ['teacher'],
+        // roles: ['teacher'],
         showParent: true
       }
     },
@@ -25,7 +25,7 @@ export default {
       meta: {
         title: "课题审批",
         showParent: true,
-        roles: ['office']
+        // roles: ['office']
       }
     }
   ]

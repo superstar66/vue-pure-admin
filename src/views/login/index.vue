@@ -33,7 +33,7 @@ dataThemeChange(overallStyle.value);
 const { title } = useNav();
 
 const ruleForm = reactive({
-  username: "teacher",
+  username: "20001",
   password: "teacher123"
 });
 
@@ -43,8 +43,9 @@ const onLogin = async (formEl: FormInstance | undefined) => {
     if (valid) {
       loading.value = true;
       useUserStoreHook()
-        .loginByUsername({ username: ruleForm.username, password: "admin123" })
+        .loginByUsername({ userID: ruleForm.username, password: "password3" })
         .then(res => {
+          console.log(res)
           if (res.success) {
             // 获取后端路由
             return initRouter().then(() => {

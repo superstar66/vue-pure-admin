@@ -27,7 +27,7 @@ instance.interceptors.response.use(function (response) {
 
 // 获取课题审批列表
 export const getTopicAppList = () => {
-  return instance.get('/allproject')
+  return instance.get('/updatestatus', { headers: { 'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyMDAwMSwiZXhwIjoxNzMzNzI4NTkwLCJpYXQiOjE3MzM2NDIxOTB9.wchXTcmFU44Vqnnz7t9gV2qE7A2ICC-Jbp6p7dBD62Y' } })
 }
 
 // 获取课题申报列表
@@ -38,4 +38,9 @@ export const getTopicDecList = (userName) => {
 // 提交课题申报
 export const subTopicDec = (data) => {
   return instance.post('/project-create', data)
+}
+
+// 登录
+export const getLogin = (data) => {
+  return instance.post('/login', data)
 }
